@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<span style="font-size:30px;margin-right:5px" v-for="(elem,index) in word2">
+<span @click="reveal(index,'s')">{{elem}}</span>
+
+</span>
+
+<div style="display:flex">
+<p v-for="elem in alphabet" @click="reveal(elem)" style="padding:4px;width:15px;margin-right:4px;border:1px black solid;border-radius:10%;">{{elem}}</p>
+</div>
+<div v-if="edit">
+    <button @click="update">update</button>
+<input type="text" v-model="newhaslo">
+
+</div>
+
+<p>Skuchy:{{looses}}</p>
+
+<p @click="edit=true" style="position:fixed;bottom:0px;right:5px; border:1px black solid;width:10px;height:10px;border-radius:50%;background:grey;"></p>
+
+
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
