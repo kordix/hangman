@@ -5,17 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    body{
+        font-family:Arial;
+    }
+
+    .letter{
+        padding:4px;
+        width:15px;
+        margin-right:4px;
+        border:1px black solid;
+        border-radius:10%;
+        cursor:pointer;
+    }
+
+    .letter:hover{
+        background:rgb(100,200,100);
+        border-radius:10%;
+
+    }
+
+    .usedbad{
+        background:rgb(200,100,100) !important;
+        cursor:none;
+
+    }
+
+    .used{
+        background:rgb(100,100,100) !important;
+        cursor:none;
+
+    }
+
+    </style>
 </head>
 <body>
 <div id="app">
+<div style="display:flex">
+
+<div id="column1" style="width:600px;float:left">
+
 <span style="font-size:30px;margin-right:5px" v-for="(elem,index) in word2">
 <span @click="reveal(index,'s')">{{elem}}</span>
 
 </span>
 
-<div style="display:flex">
-<p v-for="elem in alphabet" @click="reveal(elem)" style="padding:4px;width:15px;margin-right:4px;border:1px black solid;border-radius:10%;">{{elem}}</p>
+<div style="display:flex;flex-wrap:wrap;width:420px">
+    <div v-for="elem in alphabet" @click="reveal(elem)">
+        <p v-if="usedbadly.indexOf(elem)>=0" class="letter usedbad">{{elem}}</p>
+        <p v-else-if="used.indexOf(elem)>=0" class="letter used">{{elem}}</p>
+        <p v-else class="letter"  class="used">{{elem}}</p>
+    </div>
 </div>
+<p style="font-size:20px">{{message}}</p>
 <div v-if="edit">
     <button @click="update">update</button>
 <input type="text" v-model="newhaslo">
@@ -23,6 +65,14 @@
 </div>
 
 <p>Skuchy:{{looses}}</p>
+
+
+</div>
+<div id="column2" style="float:left;width:300px">
+    <div style="width:300px;height:400px;background-repeat:no-repeat;" :style="{background:'url('+looses+'.png) no-repeat'}"></div>
+</div>
+</div>
+
 
 <p @click="edit=true" style="position:fixed;bottom:0px;right:5px; border:1px black solid;width:10px;height:10px;border-radius:50%;background:grey;"></p>
 

@@ -1,7 +1,6 @@
 <?php
-
-
-$pdo = new PDO('mysql:host=localhost;dbname=apps', 'root', '');
+require_once('cred.php');
+$pdo = new PDO('mysql:host=localhost;dbname=apps', $login, $pass);
 
 // echo $_POST['haslo'];
 // echo $_POST['haslo'];

@@ -1,0 +1,5 @@
+<?php
+$login="root";
+$pass="";
+
+ ?>
