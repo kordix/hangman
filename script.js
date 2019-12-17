@@ -8,7 +8,7 @@ let app = new Vue({
     data:{
         word:'twojastaratolewara',
         word2:'',
-        alphabet:['a','b','c','ć','d','e','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','r','s','ś','t','u','w','y','z'],
+        alphabet:['a','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','r','s','ś','t','u','w','y','z'],
         looses:0,
         newhaslo:'',
         usedbadly:[],
