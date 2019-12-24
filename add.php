@@ -19,6 +19,8 @@ function insert($questionarg){
 
 insert($question);
 
+echo "asdfdsasfd";
+
 // echo $question;
 
 ?>

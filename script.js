@@ -18,7 +18,7 @@ let app = new Vue({
         edit:false,
         message:'',
         addhaslo:'',
-        addbool:false,
+        addbool:true,
         num:0
     },
     watch:{
