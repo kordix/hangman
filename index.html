@@ -41,28 +41,42 @@
 </head>
 <body>
 <div id="app">
+<p>Pytanie numer {{num+1}} / {{wordsData.length}} <button @click="next">Dalej</button></p>
+
+<span id="pytanie" style="font-size:30px;margin-right:5px" v-for="(elem,index) in word2">
+    <span >{{elem}}</span>
+</span>
+
+
 <div style="display:flex">
 
 <div id="column1" style="width:600px;float:left">
 
-<span style="font-size:30px;margin-right:5px" v-for="(elem,index) in word2">
-<span @click="reveal(index,'s')">{{elem}}</span>
 
-</span>
-
-<div style="display:flex;flex-wrap:wrap;width:420px">
+<div id="alfabet" style="display:flex;flex-wrap:wrap;width:420px">
     <div v-for="elem in alphabet" @click="reveal(elem)">
         <p v-if="usedbadly.indexOf(elem)>=0" class="letter usedbad">{{elem}}</p>
         <p v-else-if="used.indexOf(elem)>=0" class="letter used">{{elem}}</p>
         <p v-else class="letter"  class="used">{{elem}}</p>
     </div>
 </div>
-<p style="font-size:20px">{{message}}</p>
+<div id="lista" v-if="listbool">
+    <p v-for="elem in wordsData">{{elem}} <button @click="deleteQuestion(elem)">x</button></p>
+</div>
+
+
+<p id="message" style="font-size:20px">{{message}}</p>
 <div v-if="edit">
-    <button @click="update">update</button>
+<button @click="update">update</button>
 <input type="text" v-model="newhaslo">
 
 </div>
+<div id="dodaj" v-if="addbool">
+<input type="text" v-model="addhaslo">
+<button @click="add">dodaj</button>
+</div>
+
+
 
 <p>Skuchy:{{looses}}</p>
 

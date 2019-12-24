@@ -1,14 +1,13 @@
 <?php
 require_once('cred.php');
-$pdo = new PDO('mysql:host=localhost;dbname=apps', $login, $pass);
-$stmt = $pdo->query('SELECT haslo FROM szubienica');
-$output='';
-foreach($stmt as $row){
-    $output = json_encode($row['haslo']);
+$dbh = new PDO('mysql:host=localhost;dbname=apps', $login, $pass);
 
-}
-
-echo $output;
+$dbh->query("INSERT INTO szubienica(QUESTION,CAT_ID) VALUES ('".$_GET['haslo']."',1)");
 
 
-?>
+
+
+
+
+
+ ?>
