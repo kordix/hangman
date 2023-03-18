@@ -1,4 +1,10 @@
 <?php
+$hostname='localhost';
 $dbname = 'szubienica';
 $login = 'root';
-$password = '';
+
+$user = 'root';
+
+$pass = '';
+
+?>
