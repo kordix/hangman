@@ -6,6 +6,10 @@ function setCharAt(str,index,chr) {
 let app = new Vue({
     el:'#app',
     data:{
+        addform:{
+            question:''
+        },
+        section:'game',
         wordsData:[],
         word:'error asdf',
         word2:'',
@@ -18,8 +22,9 @@ let app = new Vue({
         edit:false,
         message:'',
         addhaslo:'',
-        addbool:true,
-        num:0
+        addbool:false,
+        num:0,
+        id:null,
     },
     watch:{
         looses:function(){
@@ -47,20 +52,22 @@ let app = new Vue({
             }
 
         },
-        update(){
-            let self = this;
-            axios.post('update.php',{haslo:self.newhaslo}).then((res)=>console.log(res));
-        },
         deleteQuestion(elem){
-            axios.post('delete.php',{haslo:elem}).then((res)=>console.log(res));
+            axios.post('api/delete.php',{haslo:elem}).then((res)=>console.log(res));
 
         },
         add(){
-            fetch(`test.php?haslo=${this.addhaslo}`).then((res)=>console.log(res))
+            axios.post('./api/add.php',this.addform)
         },
-        getData(){
+        async getData(){
             let self = this;
-            fetch('getData.php').then((res)=>res.json()).then((res)=>self.wordsData=res).then((res)=>self.getWord());
+            let idfetchstring = '';
+            // await fetch('getId.php').then((res)=>res.json()).then((res)=>self.id = res);
+            if(this.id){
+                idfetchstring ='?id='+this.id
+            }
+
+            await fetch('./api/getData.php'+idfetchstring).then((res)=>res.json()).then((res)=>self.wordsData=res).then((res)=>self.getWord());
             // fetch('test.php').then((res)=>res.json()).then((res)=>self.wordsData=res);
         },
         getWord(){
@@ -68,7 +75,7 @@ let app = new Vue({
             this.looses=0;
             this.usedbadly=[];
             this.used=[];
-            this.word = this.wordsData[this.num];
+            this.word = this.wordsData[this.num].question;
             this.prepareWord();
         },
         next(){
@@ -97,11 +104,15 @@ let app = new Vue({
 
     },
     mounted(){
+        this.id = parseInt(document.querySelector('#questionidinput').value);
         this.getData();
         let self = this;
         document.addEventListener("keydown", event => {
             if (event.key=="Control") {return}
             if (event.key=="AltGraph") {return}
+            if (event.key == "F12") { return }
+            if (event.key == "Tab") { return }
+
 
             console.log(event.key);
             this.reveal(event.key);
