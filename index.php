@@ -21,6 +21,8 @@ if (isset($_GET['id'])) {
     <title>Szubienica</title>
     <link rel="stylesheet" href="css/mybootstrap.css">
 
+    <link rel="icon" href="data:;base64,=">
+
     <style>
         body {
             font-family: Arial;
@@ -115,19 +117,21 @@ if (isset($_GET['id'])) {
 
         <div v-if="section=='lista'">
 
-     <table>
-        <tr>
-            <td>
-                question
-            </td>
-            <td>id</td>
-        </tr>
-        <tr v-for="elem in wordsData">
-            <td>{{elem.question}}</td>
-            <td><a :href="'?id='+elem.id">szubienica.kordi.com.pl?id={{elem.id}} </a></td>
+              <input type="text" placeholder="podaj hasło" v-model="password">
 
-        </tr>
-     </table>
+                <table v-if="password == 'clubmate'">
+                    <tr>
+                        <td>
+                            question
+                        </td>
+                        <td>id</td>
+                    </tr>
+                    <tr v-for="elem in wordsData">
+                        <td>{{elem.question}}</td>
+                        <td><a :href="'?id='+elem.id">szubienica.kordi.com.pl?id={{elem.id}} </a></td>
+
+                    </tr>
+                </table>
 
         </div>
 

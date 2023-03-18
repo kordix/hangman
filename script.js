@@ -9,6 +9,7 @@ let app = new Vue({
         addform:{
             question:''
         },
+        password:'',
         section:'game',
         wordsData:[],
         word:'error asdf',
@@ -108,14 +109,20 @@ let app = new Vue({
         this.getData();
         let self = this;
         document.addEventListener("keydown", event => {
-            if (event.key=="Control") {return}
-            if (event.key=="AltGraph") {return}
-            if (event.key == "F12") { return }
-            if (event.key == "Tab") { return }
+            if(self.section == 'game'){
+                if (event.key=="Control") {return}
+                if (event.key=="AltGraph") {return}
+                if (event.key == "F12") { return }
+                if (event.key == "Tab") { return }
+
+                if(self.alphabet.indexOf(event.key) === -1){
+                    return;
+                }
 
 
-            console.log(event.key);
-            this.reveal(event.key);
+                console.log(event.key);
+                this.reveal(event.key);
+            }
 
         })
 
