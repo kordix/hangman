@@ -25,7 +25,8 @@ foreach ($allowed as $key) {
         $kolumnystring .= ',';
         $pytajniki .= '?';
         $pytajniki .= ',';
-        array_push($wartosci, htmlentities($dane->$key, ENT_QUOTES, 'UTF-8'));
+        array_push($wartosci, $dane->$key);
+
     }
 }
 

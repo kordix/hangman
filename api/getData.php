@@ -16,5 +16,4 @@ $sth->execute();
 $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($rows);
-
 ?>
