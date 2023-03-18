@@ -22,6 +22,7 @@ let app = new Vue({
         listbool:false,
         edit:false,
         message:'',
+        messages:[],
         addhaslo:'',
         addbool:false,
         num:0,
@@ -57,8 +58,9 @@ let app = new Vue({
             axios.post('api/delete.php',{haslo:elem}).then((res)=>console.log(res));
 
         },
-        add(){
-            axios.post('./api/add.php',this.addform)
+        async add(){
+            await axios.post('./api/add.php',this.addform);
+            this.messages.push('Dodano pytanie \''+this.addform.question+'\'')
         },
         async getData(){
             let self = this;

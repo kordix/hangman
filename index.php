@@ -142,6 +142,10 @@ if (isset($_GET['id'])) {
             <input type="text" v-model="addform.question" style="width:400px;height:35px" >
             <button @click="add" class="btn btn-success">dodaj</button>
 
+            <p style="color:red" v-for="elem in messages">{{elem}}</p>
+
+
+
 
         </div>
 
