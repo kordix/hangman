@@ -2,7 +2,7 @@
 
 require_once('../cred.php');
 
-$pdo = new PDO("mysql:host=localhost;dbname=$dbname", $login, $pass);
+$pdo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $login, $pass);
 
 $query = "SELECT * FROM szubienica";
 if (isset($_GET['id'])){
