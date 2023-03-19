@@ -153,7 +153,7 @@ if (isset($_GET['id'])) {
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=1"></script>
 
 
 </body>
