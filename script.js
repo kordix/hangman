@@ -14,7 +14,7 @@ let app = new Vue({
         wordsData:[],
         word:'error asdf',
         word2:'',
-        alphabet:['a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','r','s','ś','t','u','w','y','z','ż','q'],
+        alphabet:['a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','r','s','ś','t','u','w','y','z','ż','q','ź'],
         looses:0,
         newhaslo:'',
         usedbadly:[],
