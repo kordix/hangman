@@ -4,7 +4,7 @@ require_once('../cred.php');
 
 $pdo = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $login, $pass);
 
-$query = "SELECT * FROM szubienica";
+$query = "SELECT * FROM szubienica order by id desc";
 if (isset($_GET['id'])){
     $id = $_GET['id'];
     $query = "SELECT * FROM szubienica where id = $id";
