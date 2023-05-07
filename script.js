@@ -94,8 +94,8 @@ let app = new Vue({
             this.word2='';
             setTimeout(function(){
                 for(let i=0;i<self.word.length;i++){
-                    if(self.word[i]==' '){
-                        self.word2 +=' ';
+                    if (self.word[i] == ' ' || self.word[i] == ','){
+                        self.word2 += self.word[i];
                     }else{
                         self.word2 +='_';
                     }
