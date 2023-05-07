@@ -9,7 +9,7 @@ let app = new Vue({
         addform:{
             question:''
         },
-        password:'clubmate',
+        password:'',
         section:'game',
         wordsData:[],
         word:'error asdf',
