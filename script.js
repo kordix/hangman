@@ -9,7 +9,7 @@ let app = new Vue({
         addform:{
             question:''
         },
-        password:'',
+        password:'clubmate',
         section:'game',
         wordsData:[],
         word:'error asdf',
@@ -30,10 +30,10 @@ let app = new Vue({
     },
     watch:{
         looses:function(){
-            if (this.looses >=10){
+            if (this.looses >=8){
                 console.log('przegrałeś');
                 this.message='PRZEGRAŁEŚ';
-                this.looses=10;
+                // this.looses=10;
             }
         }
 
@@ -55,7 +55,7 @@ let app = new Vue({
 
         },
         deleteQuestion(elem){
-            axios.post('api/delete.php',{haslo:elem}).then((res)=>console.log(res));
+            axios.post('api/delete.php',{haslo:elem.question}).then((res)=>console.log(res));
 
         },
         async add(){

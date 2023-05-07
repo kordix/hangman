@@ -64,6 +64,8 @@ if (isset($_GET['id'])) {
 <body>
     <div id="app" class="container mt-2">
 
+    <a href="/"><h1>  Szubienica</h1></a>
+
         <div class="mb-2">
             <button class="btn btn-primary" @click="section='game'">Gra</button>
             <button class="btn btn-primary" @click="section='lista'">Lista</button>
@@ -110,7 +112,7 @@ if (isset($_GET['id'])) {
 
                 <div id="column2" style="float:left;width:300px">
                     <div style="width:300px;height:400px;background-repeat:no-repeat;"
-                        :style="{background:'url(images/'+looses+'.png) no-repeat'}"></div>
+                        :style="{background:'url(images/'+(looses <= 8 ? looses : 8)+'.png) no-repeat'}"></div>
                 </div>
             </div>
         </div>
@@ -129,6 +131,7 @@ if (isset($_GET['id'])) {
                     <tr v-for="elem in wordsData">
                         <td>{{elem.question}}</td>
                         <td><a :href="'?id='+elem.id">szubienica.kordi.com.pl?id={{elem.id}} </a></td>
+                        <td><button class="btn btn-danger" @click="deleteQuestion(elem)">Usuń</button></td>
 
                     </tr>
                 </table>
